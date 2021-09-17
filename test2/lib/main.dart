@@ -12,7 +12,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Test task'),
     );
   }
 }
@@ -43,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: FutureBuilder(
             future: providerItem.store.isReady(),
             builder: (context, AsyncSnapshot snapshot) {
@@ -60,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 if (textLabelStart != null) {
                   providerText = textLabelStart;
                 }
-                providerItem.store.setInitialized(true);
+                providerItem.store.setInitialized = true;
               }
 
               return Column(
@@ -78,17 +77,16 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Row(children: [
                         ButtonTemplate(
                           title: "apple",
-                          buttonAction: () =>
-                              providerItem.setTextLabel("apple"),
+                          buttonAction: () => providerItem.textLabel = "apple",
                         ),
                         ButtonTemplate(
                             title: "orange",
                             buttonAction: () =>
-                                providerItem.setTextLabel("orange")),
+                                providerItem.textLabel = "orange"),
                         ButtonTemplate(
                             title: "banana",
                             buttonAction: () =>
-                                providerItem.setTextLabel("banana")),
+                                providerItem.textLabel = "banana"),
                         ButtonTemplate(
                             title: "clear storage",
                             buttonAction: () =>
