@@ -1,6 +1,7 @@
 # test2
 
-A new Flutter project.
+App with 3 button and text field.
+Field must rewrite string to text from buttons. App should save current state of text field after reload.
 
 ## Getting Started
 
